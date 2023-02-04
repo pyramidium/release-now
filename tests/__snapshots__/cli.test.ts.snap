@@ -1,0 +1,28 @@
+// Vitest Snapshot v1
+
+exports[`utilities/cli > render help text 1`] = `
+"
+  [1m[31mrelease-now[39m[22m - Generic CLI for creating releases on GitHub
+
+  [1mUSAGE[22m
+
+    [1m$[22m [31mrelease-now[39m
+    [1m$[22m [31mrelease-now[39m minor
+    [1m$[22m [31mrelease-now[39m --help
+    [1m$[22m [31mrelease-now[39m --version
+
+    By default, [31mrelease-now[39m will prompt you to set your desired
+    version number.
+
+    You may bump the version number by using either a [1mpatch[22m, [1mminor[22m 
+    or [1mmajor[22m version increment.
+
+  [1mOPTIONS[22m
+
+    -h, --help         Shows this help message
+
+    -v, --version      Displays the current version of [31mrelease-now[39m
+
+    -d, --debug        Show debugging information
+"
+`;
