@@ -4,7 +4,7 @@
 import semver from 'semver';
 import { git } from './git.js';
 import { prompts } from './prompts.js';
-import { version } from './version.js';
+import { getPackageVersion } from './package.js';
 import type { Arguments } from '../types.js';
 import type { ReleaseType } from 'semver';
 
@@ -22,7 +22,7 @@ export async function release(args: Arguments): Promise<void> {
     throw new Error(`Unknown argument: ${argument}`);
   }
 
-  const currentVersion = version();
+  const currentVersion = getPackageVersion();
 
   // Bump the version and release.
   if (hasBump) {
