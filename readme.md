@@ -1,7 +1,13 @@
 # Release Now
 
-[![@latest](https://img.shields.io/npm/v/release-now.svg)](https://www.npmjs.com/package/release-now)
-[![Build Status](https://github.com/pyramidium/release-now/workflows/Test/badge.svg)](https://github.com/pyramidium/release-now/actions?query=workflow%3ATest+branch%3Amain)
+<div>
+  <a aria-label="NPM Package" href="https://www.npmjs.com/package/release-now">
+    <img src="https://img.shields.io/npm/v/release-now.svg">
+  </a>
+  <a aria-label="Build Status" href="https://github.com/pyramidium/release-now/actions/workflows/ci.yaml">
+    <img src="https://github.com/pyramidium/release-now/actions/workflows/ci.yaml/badge.svg">
+  </a>
+</div>
 
 ### 🚧 This package is currently under development 🚧
 
