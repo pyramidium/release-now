@@ -68,10 +68,10 @@ release-now
 │  │  ├── cli.ts
 │  │  ├── git.ts
 │  │  ├── logger.ts
+│  │  ├── package.ts
 │  │  ├── promise.ts
 │  │  ├── prompts.ts
-│  │  ├── release.ts
-│  │  └── version.ts
+│  │  └── release.ts
 │  ├── main.ts
 │  └── types.ts
 ├── contributing.md
@@ -108,12 +108,13 @@ release-now
   parsing arguments and printing help text.
 - `utilities/git.ts`: Exports the function that communicates with GitHub.
 - `utilities/logger.ts`: A barebones logger.
+- `utilities/package.ts`: Exports utility functions that fetch and update
+  the package version number.
 - `utilities/promise.ts`: Exports utility functions and wrappers that help
   resolve `Promise`s.
 - `utilities/prompts.ts`: Exports functions that prompt the user.
 - `utilities/release.ts`: Exports the function that handles arguments and
   increments the version number.
-- `utilities/version.ts`: Exports the function that fetches the version number
   in the working directory.
 
 #### `source/`
