@@ -6,7 +6,7 @@ import confirm from '@inquirer/confirm';
 import semver from 'semver';
 import chalk from 'chalk';
 
-export async function prompts(defaultVersion?: string) {
+export async function prompts(defaultVersion?: string): Promise<string> {
   const bumpedVersion = semver.inc(defaultVersion || '', 'patch');
   const version = await input({
     default: bumpedVersion || '0.1.0',
@@ -29,7 +29,14 @@ export async function prompts(defaultVersion?: string) {
   throw new Error('Cancelled the release');
 }
 
-export async function gitPrompt(remote: string) {
+export async function gitPrompt(remote: string): Promise<{
+  auth: string;
+  owner: string;
+  repo: string;
+  baseBranch: string;
+  mainBranch: string;
+  generateReleaseNotes: boolean;
+}> {
   const authDefault = process.env.GITHUB_TOKEN;
   const remoteOwnerName = remote
     .replace('git@github.com:', '')

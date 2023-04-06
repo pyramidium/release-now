@@ -7,7 +7,7 @@ import { logger } from './logger.js';
 import { replacePackageVersion } from './package.js';
 import { gitPrompt } from './prompts.js';
 
-export async function git(version: string) {
+export async function git(version: string): Promise<void> {
   logger.info(`Releasing ${version}`);
 
   logger.info('Performing: git remote get-url origin');

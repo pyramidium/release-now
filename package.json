@@ -19,10 +19,10 @@
   "scripts": {
     "compile": "tsup ./source/main.ts",
     "dev": "node --no-warnings --loader tsx ./source/main.ts",
-    "format": "prettier --write --ignore-path .gitignore .",
+    "format": "prettier --write ./source ./tests",
     "lint": "pnpm lint:code && pnpm lint:style",
     "lint:code": "eslint --max-warnings 0 source/**/*.ts",
-    "lint:style": "prettier --check --ignore-path .gitignore .",
+    "lint:style": "prettier --check ./source ./tests",
     "prepare": "husky install config/husky && pnpm compile",
     "start": "node ./build/main.js",
     "test": "pnpm test:tsc && pnpm test:unit",
