@@ -16,64 +16,19 @@
   "files": [
     "build/"
   ],
-  "engines": {
-    "node": ">= 14"
-  },
   "scripts": {
-    "dev": "node --no-warnings --loader tsx ./source/main.ts",
-    "start": "node ./build/main.js",
     "compile": "tsup ./source/main.ts",
+    "dev": "node --no-warnings --loader tsx ./source/main.ts",
+    "format": "prettier --write ./source ./tests",
+    "lint": "pnpm lint:code && pnpm lint:style",
+    "lint:code": "eslint --max-warnings 0 source/**/*.ts",
+    "lint:style": "prettier --check ./source ./tests",
+    "prepare": "husky install config/husky && pnpm compile",
+    "start": "node ./build/main.js",
+    "test": "pnpm test:tsc && pnpm test:unit",
     "test:tsc": "tsc --project tsconfig.json",
     "test:unit": "vitest run --config config/vitest.ts",
-    "test:watch": "vitest watch --config config/vitest.ts",
-    "test": "pnpm test:tsc && pnpm test:unit",
-    "lint:code": "eslint --max-warnings 0 source/**/*.ts",
-    "lint:style": "prettier --check --ignore-path .gitignore .",
-    "lint": "pnpm lint:code && pnpm lint:style",
-    "format": "prettier --write --ignore-path .gitignore .",
-    "prepare": "husky install config/husky && pnpm compile"
-  },
-  "dependencies": {
-    "@inquirer/confirm": "0.0.28-alpha.0",
-    "@inquirer/input": "0.0.28-alpha.0",
-    "@octokit/rest": "19.0.7",
-    "arg": "5.0.2",
-    "chalk": "5.0.1",
-    "chalk-template": "0.4.0",
-    "execa": "6.1.0",
-    "semver": "7.3.8",
-    "update-check": "1.5.4"
-  },
-  "devDependencies": {
-    "@types/semver": "7.3.13",
-    "@vercel/style-guide": "3.0.0",
-    "c8": "7.12.0",
-    "eslint": "8.19.0",
-    "got": "12.1.0",
-    "husky": "8.0.1",
-    "lint-staged": "13.0.3",
-    "prettier": "2.7.1",
-    "tsup": "6.1.3",
-    "tsx": "3.7.1",
-    "typescript": "4.6.4",
-    "vitest": "0.18.0"
-  },
-  "tsup": {
-    "target": "esnext",
-    "format": [
-      "esm"
-    ],
-    "outDir": "./build/"
-  },
-  "prettier": "@vercel/style-guide/prettier",
-  "eslintConfig": {
-    "extends": [
-      "./node_modules/@vercel/style-guide/eslint/node.js",
-      "./node_modules/@vercel/style-guide/eslint/typescript.js"
-    ],
-    "parserOptions": {
-      "project": "tsconfig.json"
-    }
+    "test:watch": "vitest watch --config config/vitest.ts"
   },
   "lint-staged": {
     "*": [
@@ -86,5 +41,51 @@
     "tests": [
       "vitest --run"
     ]
+  },
+  "prettier": "@vercel/style-guide/prettier",
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "tsconfig.json"
+    },
+    "extends": [
+      "./node_modules/@vercel/style-guide/eslint/node.js",
+      "./node_modules/@vercel/style-guide/eslint/typescript.js"
+    ]
+  },
+  "dependencies": {
+    "@inquirer/confirm": "0.1.0",
+    "@inquirer/input": "0.1.0",
+    "@octokit/rest": "19.0.7",
+    "arg": "5.0.2",
+    "chalk": "5.2.0",
+    "chalk-template": "1.0.0",
+    "execa": "7.1.1",
+    "semver": "7.3.8",
+    "update-check": "1.5.4"
+  },
+  "devDependencies": {
+    "@types/semver": "7.3.13",
+    "@vercel/style-guide": "4.0.2",
+    "@vitest/coverage-c8": "0.29.8",
+    "c8": "7.13.0",
+    "eslint": "8.37.0",
+    "got": "12.6.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.0",
+    "prettier": "2.8.7",
+    "tsup": "6.7.0",
+    "tsx": "3.12.6",
+    "typescript": "5.0.3",
+    "vitest": "0.29.8"
+  },
+  "engines": {
+    "node": ">= 14"
+  },
+  "tsup": {
+    "target": "esnext",
+    "format": [
+      "esm"
+    ],
+    "outDir": "./build/"
   }
 }
