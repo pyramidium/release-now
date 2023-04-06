@@ -7,7 +7,7 @@ import { logger } from './logger.js';
 import { replacePackageVersion } from './package.js';
 import { gitPrompt } from './prompts.js';
 
-export async function git(version: string) {
+export async function git(version: string): Promise<void> {
   logger.info(`Releasing ${version}`);
 
   logger.info('Performing: git remote get-url origin');
@@ -42,7 +42,12 @@ export async function git(version: string) {
   logger.info('Performing: git add package.json');
   await execa('git', ['add', 'package.json']);
   logger.info(`Performing: git commit -m "Bump version to ${version}"`);
-  await execa('git', ['commit', '-m', `Bump version to ${version}`]);
+  await execa('git', [
+    'commit',
+    '-m',
+    `Bump version to ${version}`,
+    '--no-verify',
+  ]);
 
   // Push bump
   logger.info(`Performing: git push origin ${baseBranch}`);
