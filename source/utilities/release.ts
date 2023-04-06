@@ -2,11 +2,11 @@
 // The release handler.
 
 import semver from 'semver';
+import type { ReleaseType } from 'semver';
+import type { Arguments } from '../types.js';
 import { git } from './git.js';
 import { prompts } from './prompts.js';
 import { getPackageVersion } from './package.js';
-import type { Arguments } from '../types.js';
-import type { ReleaseType } from 'semver';
 
 export async function release(args: Arguments): Promise<void> {
   const argument = args._[0] as ReleaseType;
