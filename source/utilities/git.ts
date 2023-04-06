@@ -42,7 +42,12 @@ export async function git(version: string) {
   logger.info('Performing: git add package.json');
   await execa('git', ['add', 'package.json']);
   logger.info(`Performing: git commit -m "Bump version to ${version}"`);
-  await execa('git', ['commit', '-m', `Bump version to ${version}`]);
+  await execa('git', [
+    'commit',
+    '-m',
+    `Bump version to ${version}`,
+    '--no-verify',
+  ]);
 
   // Push bump
   logger.info(`Performing: git push origin ${baseBranch}`);
