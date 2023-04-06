@@ -66,6 +66,7 @@
   "devDependencies": {
     "@types/semver": "7.3.13",
     "@vercel/style-guide": "4.0.2",
+    "@vitest/coverage-c8": "0.29.8",
     "c8": "7.13.0",
     "eslint": "8.37.0",
     "got": "12.6.0",
