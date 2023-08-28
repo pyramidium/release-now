@@ -60,7 +60,7 @@
     "chalk": "5.2.0",
     "chalk-template": "1.0.0",
     "execa": "7.1.1",
-    "semver": "7.3.8",
+    "semver": "7.5.2",
     "update-check": "1.5.4"
   },
   "devDependencies": {
