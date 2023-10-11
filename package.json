@@ -1,6 +1,6 @@
 {
   "name": "release-now",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Generic CLI for creating releases on GitHub",
   "keywords": [
     "release-now",
