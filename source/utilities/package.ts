@@ -30,5 +30,5 @@ export function replacePackageVersion(version: string): void {
   }
   currentPackage.version = cleanVersion;
   const stringPackage = JSON.stringify(currentPackage, null, 2);
-  return fs.writeFileSync(packagePath, `${stringPackage}\n`);
+  fs.writeFileSync(packagePath, `${stringPackage}\n`);
 }
